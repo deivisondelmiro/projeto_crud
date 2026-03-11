@@ -22,7 +22,10 @@
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="" class="nav-link">Exemplo</a>
+                        <a href="" class="nav-link">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cursos/create" class="nav-link">Criar Curso</a>
                     </li>
                 </ul>
             </div>
@@ -32,5 +35,6 @@
     <footer>
         <p>SEPLAG &copy; 2026</p>
     </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>
