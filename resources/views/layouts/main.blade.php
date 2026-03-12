@@ -17,9 +17,16 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
-                <a href="/" class="navbar-brand">
-                    <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
-                </a>
+                <div class="logo-serach" class="collapse col-md-12">
+                    <a href="/" class="navbar-brand">
+                        <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
+                    </a>
+                    <div id="search-container">
+                        <form action="">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar curso...">
+                        </form>
+                    </div>
+                </div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a href="" class="nav-link">Cursos</a>
@@ -31,7 +38,16 @@
             </div>
         </nav>
     </header>
-    @yield('content')
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                @if(session('msg'))
+                    <p class="msg">{{ session('msg') }}</p>
+                @endif
+                @yield('content')
+            </div>
+        </div>
+    </main>
     <footer>
         <p>SEPLAG &copy; 2026</p>
     </footer>
