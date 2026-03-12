@@ -16,7 +16,7 @@
     <div id="cards-container" class="row">
         @foreach($cursos as $curso)
             <div class="card col-md-3">
-                <img src="#fs" alt="{{ $curso->title }}">
+                <img src="/css/img/logo_javascript.png" alt="{{ $curso->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $curso->title_curso }}</h5>
                     <p class="card-description">{{ $curso->description }}</p>

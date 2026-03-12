@@ -1,0 +1,27 @@
+<svg width="45" height="32" xmlns="http://www.w3.org/2000/svg">
+ <!-- Gradiente -->
+ <defs>
+  <linearGradient y2="100%" x2="100%" y1="0%" x1="0%" id="grad1">
+   <stop stop-color="#ff2d20" offset="0%"/>
+   <stop stop-color="#ff6b4a" offset="100%"/>
+  </linearGradient>
+ </defs>
+ <!-- Ícone -->
+ <!-- Texto -->
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <!-- Livro -->
+   <rect id="svg_2" fill="#2d3748" rx="3" height="20" width="35" y="12" x="5"/>
+   <!-- Página -->
+   <line id="svg_3" stroke-width="1.5" stroke="#ffffff" y2="32" x2="22.5" y1="12" x1="22.5"/>
+   <!-- Chapéu de formatura -->
+   <polygon id="svg_4" fill="url(#grad1)" points="0,10 22.5,0 45,10 22.5,20 "/>
+   <!-- Base do chapéu -->
+   <rect id="svg_5" fill="#ff2d20" height="3" width="17" y="19" x="14"/>
+   <!-- Tassel -->
+   <line id="svg_6" stroke-width="2" stroke="#ff2d20" y2="20" x2="33" y1="10" x1="33"/>
+   <circle id="svg_7" fill="#ff2d20" r="2" cy="22" cx="33"/>
+  </g>
+ </g>
+</svg>

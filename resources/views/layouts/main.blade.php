@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand">
-                    Voltar
+                    <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
