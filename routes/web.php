@@ -18,3 +18,12 @@ Route::get('/', [CursoController::class, 'index']);
 Route::get('/cursos/create', [CursoController::class, 'create']);
 Route::get('/cursos/{id}', [CursoController::class, 'show']);
 Route::post('/cursos', [CursoController::class, 'store']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

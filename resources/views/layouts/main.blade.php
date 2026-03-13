@@ -35,6 +35,26 @@
                     <li class="nav-item">
                         <a href="/cursos/create" class="nav-link">Criar Curso</a>
                     </li>
+                    @auth
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Meus cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a href="/logout" class="nav-link" onclick="event.preventDefault();
+                                this.closet('form').submit();">Sair</a>
+                            </form>
+                        </li>
+                    @endauth
+                    @guest
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Casdastrar</a>
+                    </li>
+                    @endguest
                 </ul>
             </div>
         </nav>
