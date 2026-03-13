@@ -17,14 +17,14 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
-                <div class="logo-serach" class="collapse col-md-12">
+                <div class="area-logo-serach" class="collapse col-md-12">
                     <a href="/" class="navbar-brand">
                         <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
                     </a>
                     <div id="search-container">
                         <form action="/" method="GET" id="search-form">
                             <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar curso...">
-                            <input type="submit" value="Buscar">
+                            <button type="submit" class="btn btn-primary"><ion-icon name="search-outline"></ion-icon></button>
                         </form>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <a href="/login" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/register" class="nav-link">Casdastrar</a>
+                        <a href="/register" class="nav-link">Cadastrar</a>
                     </li>
                     @endguest
                 </ul>

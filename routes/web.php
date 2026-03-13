@@ -15,7 +15,7 @@ use App\Http\Controllers\CursoController;
 */
 
 Route::get('/', [CursoController::class, 'index']);
-Route::get('/cursos/create', [CursoController::class, 'create']);
+Route::get('/cursos/create', [CursoController::class, 'create'])->middleware('auth');
 Route::get('/cursos/{id}', [CursoController::class, 'show']);
 Route::post('/cursos', [CursoController::class, 'store']);
 Route::middleware([

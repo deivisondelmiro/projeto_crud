@@ -50,6 +50,9 @@ class CursoController extends Controller
          $curso->image = $imageName;
       }
 
+      $user = auth()->user();
+      $curso->user_id = $user->id;
+
       $curso->save();
 
       return redirect('/')->with('msg', 'Curso criado com sucesso!');
