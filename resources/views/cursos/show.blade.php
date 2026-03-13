@@ -13,6 +13,11 @@
                 <p>{{$curso->duration}}</p>
                 <p>{{$curso->level}}</p>
                 <a href="#" class="btn btn-primary" id="curso-submit">Inscrever-se</a>
+                <ul id="items-list">
+                    @foreach($curso->items as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                </ul>
             </div>
             <div class="col-md-12" id="description-container">
                 <h3>Descrição:</h3>

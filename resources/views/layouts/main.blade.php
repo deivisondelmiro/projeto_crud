@@ -22,8 +22,9 @@
                         <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
                     </a>
                     <div id="search-container">
-                        <form action="">
+                        <form action="/" method="GET" id="search-form">
                             <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar curso...">
+                            <input type="submit" value="Buscar">
                         </form>
                     </div>
                 </div>

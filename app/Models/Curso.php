@@ -14,4 +14,8 @@ class Curso extends Model
         'duration',
         'level'
     ];
+
+    protected $casts = [
+        'items' => 'array'
+    ];
 }

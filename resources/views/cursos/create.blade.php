@@ -29,6 +29,33 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="title">Características do Curso</label>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-ao-vivo" value="Ao vivo">
+                <label for="item-ao-vivo">Ao vivo</label>  
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-gravado" value="Gravado">
+                <label for="item-gravado">Gravado</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-certificado" value="Certificado">
+                <label for="item-certificado">Certificado</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-vitalicio" value="Acesso vitalício">
+                <label for="item-vitalicio">Acesso vitalício</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-requisitos" value="Sem pré-requisitos">
+                <label for="item-requisitos">Sem pré-requisitos</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" id="item-conhecimento" value="Conhecimento básico">
+                <label for="item-conhecimento">Conhecimento básico</label>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="image">Imagem do curso:</label>
             <input type="file" id="image" name="image" class="form-control-file">
         </div>

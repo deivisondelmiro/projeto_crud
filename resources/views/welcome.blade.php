@@ -6,8 +6,12 @@
 
 
 <div id="cursos-container" class="col-md-12">
+    @if($search)
+    <h2>Buscando por: {{ $search }}</h2>
+    @else
     <h2>Cursos</h2>
     <p class=subtitle>Veja os cursos em alta</p>
+    @endif
     <div id="cards-container" class="row">
         @foreach($cursos as $curso)
             <div class="card col-md-3">
@@ -20,6 +24,11 @@
                 </div>
             </div>
         @endforeach
+        @if(count($cursos) == 0 && $search)
+            <p>Não foi possível encontrar nenhum curso de {{ $search }}! <a href="/">Veja todos os cursos.</a></p>
+        @elseif(count($cursos) == 0)
+            <p>Não há cursos disponíveis.</p>
+        @endif
     </div>
 </div>
 

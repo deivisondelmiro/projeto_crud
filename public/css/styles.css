@@ -81,6 +81,10 @@ header {
     margin: 0 auto;
 }
 
+#search-form {
+    display: flex;
+}
+
 /* List */
 #cursos-container {
     padding: 50px;
@@ -163,6 +167,15 @@ header {
 
 #info-container #event-submit {
     margin: 20px 0;
+}
+
+#items-list {
+    list-style: none;
+    padding: 0;
+}
+
+#items-list li {
+    display: flex;
 }
 
 /* Footer */
