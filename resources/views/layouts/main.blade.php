@@ -17,9 +17,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
-                <div class="area-logo-serach" class="collapse col-md-12">
+                <div class="area-logo-search" class="collapse col-md-12">
                     <a href="/" class="navbar-brand">
-                        <img src="/css/img/logo.png" alt="Curso Hub" title="Curso Hub">
+                        <img src="/css/img/logo_course_hub.svg" alt="Curso Hub" title="Curso Hub">
                     </a>
                     <div id="search-container">
                         <form action="/" method="GET" id="search-form">
@@ -28,10 +28,13 @@
                         </form>
                     </div>
                 </div>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav list-navegation">
                     <li class="nav-item">
                         <a href="" class="nav-link">Cursos</a>
                     </li>
+                    <liv class="nav-item">
+                        <a href="/" class="nav-link">Sobre</a>
+                    </liv>
                     <li class="nav-item">
                         <a href="/cursos/create" class="nav-link">Criar Curso</a>
                     </li>
@@ -49,7 +52,10 @@
                     @endauth
                     @guest
                     <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
+                        <span class="nav-link">|</span>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</ion-icon></a>
                     </li>
                     <li class="nav-item">
                         <a href="/register" class="nav-link">Cadastrar</a>

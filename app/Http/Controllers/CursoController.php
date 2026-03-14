@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Curso;
+use App\Models\User;
 
 class CursoController extends Controller
 {
@@ -60,6 +61,8 @@ class CursoController extends Controller
 
    public function show($id) {
       $curso = Curso::findOrFail($id);
+
+      $cursoOwner = User::where('id', $curso->user_id)->first()->toArray();
 
       return view('cursos.show', ['curso' => $curso]);
    }
