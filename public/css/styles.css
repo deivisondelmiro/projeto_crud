@@ -10,8 +10,8 @@ body {
 }
 
 header {
-    max-width: 1300px;
-    width: 1300px;
+    min-width: fit-content;
+    width: 100%;
     align-self: center;
     background-color: #FFF;
     border-bottom: 1px solid #CCC;
@@ -203,6 +203,15 @@ header {
 
 #items-list li {
     display: flex;
+}
+
+/* Dashboard */
+.dashboard-title-container {
+    margin: 30px 0 30px 0;
+}
+
+.dashboard-cursos-containr th {
+    width: 25%;
 }
 
 /* Footer */

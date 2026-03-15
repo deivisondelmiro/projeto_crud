@@ -66,4 +66,12 @@ class CursoController extends Controller
 
       return view('cursos.show', ['curso' => $curso]);
    }
+
+   public function dashboard() {
+      $user = auth()->user();
+
+      $cursos = $user->cursos;
+
+      return view('cursos.daschboard', ['cursos' => $cursos]);
+   }
 }
