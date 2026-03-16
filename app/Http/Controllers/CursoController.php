@@ -80,4 +80,30 @@ class CursoController extends Controller
 
       return redirect('/dashboard')->with('msg', 'Curso excluído com sucesso!');
    }
+
+   public function edit($id) {
+      $curso = Curso::findOrFail($id);
+
+      return view('cursos.edit', ['curso' => $curso]);
+   }
+
+   public function update(Request $request) {
+      $data = $request->all();
+
+      if($request->hasFile('image') && $request->file('image')->isValid()) {
+         $requestImage = $request->image;
+
+         $extension = $requestImage->extension();
+
+         $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+         $requestImage->move(public_path('img/cursos'), $imageName);
+
+         $data['image'] = $imageName;
+      }
+
+      Curso::findOrFail($request->id)->update($data);
+
+      return redirect('/dashboard')->with('msg', 'Curso editado com sucesso!');
+   }
 }

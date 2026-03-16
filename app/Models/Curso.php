@@ -19,6 +19,8 @@ class Curso extends Model
         'items' => 'array'
     ];
 
+    protected $guarded = [];
+
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
