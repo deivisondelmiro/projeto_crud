@@ -62,9 +62,22 @@ class CursoController extends Controller
    public function show($id) {
       $curso = Curso::findOrFail($id);
 
-      $cursoOwner = User::where('id', $curso->user_id)->first()->toArray();
+      $user = auth()->user();
+      $hasUserJoined = false;
 
-      return view('cursos.show', ['curso' => $curso]);
+      if($user) {
+         $userCursos = $user->cursosAsParticipant->toArray();
+
+         foreach($userCursos as $userCurso) {
+            if($userCurso['id'] == $id) {
+               $hasUserJoined = true;
+            }
+         }
+      }
+
+      // $cursoOwner = User::where('id', $curso->user_id)->first()->toArray();
+
+      return view('cursos.show', ['curso' => $curso, 'hasUserJoined' => $hasUserJoined]);
    }
 
    public function dashboard() {
@@ -72,7 +85,9 @@ class CursoController extends Controller
 
       $cursos = $user->cursos;
 
-      return view('cursos.daschboard', ['cursos' => $cursos]);
+      $cursosAsParticipant = $user->cursosAsParticipant;
+
+      return view('cursos.dashboard', ['cursos' => $cursos, 'cursosAsParticipant' => $cursosAsParticipant]);
    }
 
    public function destroy($id) {
@@ -82,7 +97,13 @@ class CursoController extends Controller
    }
 
    public function edit($id) {
+      $user = auth()->user();
+
       $curso = Curso::findOrFail($id);
+
+      if($user->id != $curso->user_id) {
+         return redirect('/dashboard');
+      }
 
       return view('cursos.edit', ['curso' => $curso]);
    }
@@ -115,5 +136,15 @@ class CursoController extends Controller
       $curso = Curso::findOrFail($id);
 
       return redirect('/dashboard')->with('msg', 'Sua inscrição no curso ' . $curso->title_curso . ' foi realizada com sucesso!');
+   }
+
+   public function leaveCurso($id) {
+      $user = auth()->user();
+
+      $user->cursosAsParticipant()->detach($id);
+
+      $curso = Curso::findOrFail($id);
+
+      return redirect('/dashboard')->with('msg', 'Você acabou de cancelar sua matrícula do curso: ' .$curso->title_curso);
    }
 }

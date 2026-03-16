@@ -23,3 +23,4 @@ Route::get('/dashboard', [CursoController::class, 'dashboard'])->middleware('aut
 Route::get('/cursos/edit/{id}', [CursoController::class, 'edit'])->middleware('auth');
 Route::put('/cursos/update/{id}', [CursoController::class, 'update'])->middleware('auth');
 Route::post('/cursos/join/{id}', [CursoController::class, 'joinCurso'])->middleware('auth');
+Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso'])->middleware('auth');
