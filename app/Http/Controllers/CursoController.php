@@ -74,4 +74,10 @@ class CursoController extends Controller
 
       return view('cursos.daschboard', ['cursos' => $cursos]);
    }
+
+   public function destroy($id) {
+      Curso::findOrFail($id)->delete();
+
+      return redirect('/dashboard')->with('msg', 'Curso excluído com sucesso!');
+   }
 }

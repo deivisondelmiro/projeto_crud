@@ -22,7 +22,13 @@
                     <td scropt="row">{{$loop->index + 1}}</td>
                     <td><a href="/cursos/{{$cursos->id}}">{{$curso->title}}</a></td>
                     <td>0</td>
-                    <td><a href="#">Editar</a> <a href="#">Deletar</a></td>
+                    <td>
+                        <a href="#" class="btn btn-info edit-btn">Editar</a>
+                        <form action="/cursos/{{ $curso->id }}" class="btn btn-info edit-btn">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-btn-danger delete-btn">Deletar</button>
+                        </form>
                 </tr>
             @endforeach
         </tbody>
