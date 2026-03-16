@@ -106,4 +106,14 @@ class CursoController extends Controller
 
       return redirect('/dashboard')->with('msg', 'Curso editado com sucesso!');
    }
+
+   public function joinCurso($id) {
+      $user = auth()->user();
+
+      $user->cursosAsParticipant()->attach($id);
+
+      $curso = Curso::findOrFail($id);
+
+      return redirect('/dashboard')->with('msg', 'Sua inscrição no curso ' . $curso->title_curso . ' foi realizada com sucesso!');
+   }
 }

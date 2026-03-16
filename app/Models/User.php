@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function cursos() {
         return $this->hasMany('App\Models\Curso');
     }
+
+    public function cursosAsParticipant() {
+        return $this->belongsToMany('App\Models\Curso');
+    }
 }

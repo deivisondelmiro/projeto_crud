@@ -24,4 +24,8 @@ class Curso extends Model
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function users() {
+        return $this->belongToMany('App\Models\User');
+    }
 }

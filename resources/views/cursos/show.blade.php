@@ -12,7 +12,10 @@
                 <h1>{{ $curso->title_curso }}</h1>
                 <p>{{$curso->duration}}</p>
                 <p>{{$curso->level}}</p>
-                <a href="#" class="btn btn-primary" id="curso-submit">Inscrever-se</a>
+                @csrf;
+                <form action="/cursos/join/{{ $curso->id }}" method="POST">
+                    <a href="#" class="btn btn-primary" id="curso-submit" onclick="event.preventDefault(); this.closest('form').submit();">Inscrever-se</a>
+                </form>
                 <ul id="items-list">
                     @foreach($curso->items as $item)
                         <li>{{ $item }}</li>
