@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="description">Descrição:</label>
-            <textarea class="form-control" id="description" name="description" placeholder="O que será abordado no curso?"></textarea>
+            <textarea class="form-control" id="description" name="description" placeholder="O que será abordado no curso?" minlength="100"></textarea>
         </div>
         <div class="form-group">
             <label for="duration">Duração:</label>

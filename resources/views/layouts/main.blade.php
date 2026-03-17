@@ -14,71 +14,73 @@
     <script src="/js/scripts.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="collapse navbar-collapse" id="navbar">
-                <div class="area-logo-search" class="collapse col-md-12">
-                    <a href="/" class="navbar-brand">
-                        <img src="/css/img/logo_course_hub.svg" alt="Curso Hub" title="Curso Hub">
-                    </a>
-                    <div id="search-container">
-                        <form action="/" method="GET" id="search-form">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar curso...">
-                            <button type="submit" class="btn btn-primary"><ion-icon name="search-outline"></ion-icon></button>
-                        </form>
-                    </div>
-                </div>
-                <ul class="navbar-nav list-navegation">
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Cursos</a>
-                    </li>
-                    <liv class="nav-item">
-                        <a href="/" class="nav-link">Sobre</a>
-                    </liv>
-                    <li class="nav-item">
-                        <a href="/cursos/create" class="nav-link">Criar Curso</a>
-                    </li>
-                    @auth
-                        <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Meus cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <a href="/logout" 
-                                    class="nav-link" 
-                                    onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                                    Sair
-                                </a>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <div class="area-logo-search" class="collapse col-md-12">
+                        <a href="/" class="navbar-brand">
+                            <img src="/css/img/logo_course_hub.svg" alt="Curso Hub" title="Curso Hub">
+                        </a>
+                        <div id="search-container">
+                            <form action="/" method="GET" id="search-form">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar curso...">
+                                <button type="submit" class="btn btn-primary"><ion-icon name="search-outline"></ion-icon></button>
                             </form>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav list-navegation">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Cursos</a>
                         </li>
-                    @endauth
-                    @guest
-                    <li class="nav-item">
-                        <span class="nav-link">|</span>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</ion-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/register" class="nav-link">Cadastrar</a>
-                    </li>
-                    @endguest
-                </ul>
+                        <liv class="nav-item">
+                            <a href="/" class="nav-link">Sobre</a>
+                        </liv>
+                        <li class="nav-item">
+                            <a href="/cursos/create" class="nav-link">Criar Curso</a>
+                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a href="/dashboard" class="nav-link">Meus cursos</a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <a href="/logout"
+                                        class="nav-link"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        Sair
+                                    </a>
+                                </form>
+                            </li>
+                        @endauth
+                        @guest
+                        <li class="nav-item">
+                            <span class="nav-link">|</span>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</ion-icon></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="nav-link">Cadastrar</a>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    @if(session('msg'))
+                        <p class="msg">{{ session('msg') }}</p>
+                    @endif
+                    @yield('content')
+                </div>
             </div>
-        </nav>
-    </header>
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                @if(session('msg'))
-                    <p class="msg">{{ session('msg') }}</p>
-                @endif
-                @yield('content')
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
     <footer>
         <p>SEPLAG &copy; 2026</p>
     </footer>

@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $curso->title_curso }} - <span>[{{ $curso->duration }}]</span></h5>
                     <p class="card-level">Nível: {{ $curso->level }}</p>
-                    <p class="card-description">{{ $curso->description }}</p>
+                    <p class="card-description">{{ Str::limit($curso->description, 100) }}</p>
                     <a href="/cursos/{{ $curso->id }}" class="btn btn-primary">Ver mais...</a>
                 </div>
             </div>
