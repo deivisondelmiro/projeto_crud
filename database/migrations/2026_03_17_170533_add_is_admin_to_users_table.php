@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToCursosTable extends Migration
+class AddIsAdminToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUserIdToCursosTable extends Migration
      */
     public function up()
     {
-        Schema::table('cursos', function (Blueprint $table) {
-            $table->foreignID('user_id')->nullable()->constrained();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_admin')->default(false)->after('email');
         });
     }
 
@@ -25,9 +25,8 @@ class AddUserIdToCursosTable extends Migration
      */
     public function down()
     {
-        Schema::table('cursos', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_admin');
         });
     }
 }

@@ -14,13 +14,26 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-Route::get('/', [CursoController::class, 'index']);
-Route::get('/cursos/create', [CursoController::class, 'create'])->middleware('auth');
-Route::get('/cursos/{id}', [CursoController::class, 'show']);
-Route::post('/cursos', [CursoController::class, 'store']);
-Route::delete('/cursos/{id}', [CursoController::class, 'destroy'])->middleware('auth');
-Route::get('/dashboard', [CursoController::class, 'dashboard'])->middleware('auth');
-Route::get('/cursos/edit/{id}', [CursoController::class, 'edit'])->middleware('auth');
-Route::put('/cursos/update/{id}', [CursoController::class, 'update'])->middleware('auth');
-Route::post('/cursos/join/{id}', [CursoController::class, 'joinCurso'])->middleware('auth');
-Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso'])->middleware('auth');
+// Rotas públicas (qualquer pessoa pode ver os cursos)
+Route::get('/', [CursoController::class, 'index'])->name('home');
+
+// Rotas que exigem autenticação (usuários logados)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [CursoController::class, 'dashboard'])->name('dashboard');
+    Route::post('/cursos/join/{id}', [CursoController::class, 'joinCurso'])->name('curso.join');
+    Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso'])->name('curso.leave');
+
+    Route::middleware(['admin'])->group(function () {
+        // Criar curso
+        Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
+        Route::post('/cursos', [CursoController::class, 'store'])->name('cursos.store');
+        
+        // Editar curso
+        Route::get('/cursos/edit/{id}', [CursoController::class, 'edit'])->name('cursos.edit');
+        Route::put('/cursos/update/{id}', [CursoController::class, 'update'])->name('cursos.update');
+        
+        // Deletar curso
+        Route::delete('/cursos/{id}', [CursoController::class, 'destroy'])->name('cursos.destroy');
+    });
+});
+Route::get('/cursos/{id}', [CursoController::class, 'show'])->name('curso.show');

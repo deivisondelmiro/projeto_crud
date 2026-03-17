@@ -21,6 +21,12 @@ class Curso extends Model
 
     protected $guarded = [];
 
+    protected static function booted() {
+        static::deleting(function($curso) {
+            $curso->users()->detach();
+        });
+    }
+
     public function user() {
         return $this->belongsTo('App\Models\User');
     }

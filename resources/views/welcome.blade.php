@@ -14,7 +14,7 @@
     @endif
     <div id="cards-container" class="row">
         @foreach($cursos as $curso)
-            <div class="card col-md-3">
+            <div class="card col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
                 <img src="img/cursos/{{ $curso->image }}" alt="{{ $curso->title_curso }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $curso->title_curso }} - <span>[{{ $curso->duration }}]</span></h5>

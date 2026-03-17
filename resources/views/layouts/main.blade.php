@@ -17,7 +17,7 @@
     <div class="container">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="navbar">
+                <div class="navbar-collapse" id="navbar">
                     <div class="area-logo-search" class="collapse col-md-12">
                         <a href="/" class="navbar-brand">
                             <img src="/css/img/logo_course_hub.svg" alt="Curso Hub" title="Curso Hub">
@@ -31,14 +31,16 @@
                     </div>
                     <ul class="navbar-nav list-navegation">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Cursos</a>
+                            <a href="/" class="nav-link">Cursos</a>
                         </li>
                         <liv class="nav-item">
                             <a href="/" class="nav-link">Sobre</a>
                         </liv>
+                        @if(auth()->user()->is_admin)
                         <li class="nav-item">
                             <a href="/cursos/create" class="nav-link">Criar Curso</a>
                         </li>
+                        @endif
                         @auth
                             <li class="nav-item">
                                 <a href="/dashboard" class="nav-link">Meus cursos</a>

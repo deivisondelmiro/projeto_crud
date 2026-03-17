@@ -11,7 +11,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="title_curso">Curso:</label>
-            <input type="text" class="form-control" id="title_curso" name="title_curso" placeholder="Curso de JavaScript" value="{{ $curso->title }}">
+            <input type="text" class="form-control" id="title_curso" name="title_curso" placeholder="Curso de JavaScript" value="{{ $curso->title_curso }}">
         </div>
         <div class="form-group">
             <label for="description">Descrição:</label>
