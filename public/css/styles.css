@@ -254,3 +254,37 @@ footer {
 footer p {
     margin: 0;
 }
+
+@media (max-width: 992px) {
+    #cursos-container {
+        padding: 20px;
+    }
+    #cursos-container .card {
+        flex: 1 1 30%;
+        /* max-width: none; */
+    }
+    .cards-container {
+        justify-content: center;
+        gap: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    header {
+        padding: 0 10px;
+    }
+    #cards-container {
+        justify-content: center;
+    }
+
+    #cursos-container .card {
+        flex: 1 1 500%;
+        /* max-width: none; */
+    }
+    #navegation-mobile{
+        flex-direction: column;
+        align-items: center;
+    }
+}
