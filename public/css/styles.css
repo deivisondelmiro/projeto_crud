@@ -247,6 +247,10 @@ header {
     margin: 20px 0;
 }
 
+#description {
+    height: 200px;
+}
+
 #description-container > h3 {
     font-size: 18px;
     margin-top: 20px;
