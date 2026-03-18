@@ -10,19 +10,30 @@
             </div>
             <div id="info-container" class="col-md-6">
                 <h1>{{ $curso->title_curso }}</h1>
-                <p>{{$curso->duration}}</p>
-                <p>{{$curso->level}}</p>
-                @if(!$hasUserJoined)
-                    <form action="/cursos/join/{{ $curso->id }}" method="POST">
-                        @csrf
-                        <a href="/cursos/join/{{ $curso->id }}" class="btn btn-primary" id="curso-submit" onclick="event.preventDefault(); this.closest('form').submit();">Inscrever-se</a>
-                    </form>
+                <div class="curso-info">
+                    <p>[{{$curso->duration}}]</p>
+                    <p>{{$curso->level}}</p>
+                </div>
+                @if(auth()->check() && auth()->user()->is_admin)
+                    <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-info edit-btn">
+                        <ion-icon name="create-outline"></ion-icon> Editar
+                    </a>
+                @elseif(auth()->check() && $hasUserJoined)
+                    {{-- Usuário logado e já inscrito --}}
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cursoModal">
+                        Acessar curso
+                    </button>
                 @else
-                    <p class="already-joined-msg">Você já está matriculado neste curso!</p>
+                    <form action="/cursos/join/{{ $curso->id }}" method="POST" id="join-course-form">
+                        @csrf
+                        <a href="/cursos/join/{{ $curso->id }}" class="btn btn-primary" id="curso-submit" onclick="event.preventDefault(); this.closest('form').submit();">
+                            Inscrever-se
+                        </a>
+                    </form>
                 @endif
                 <ul id="items-list">
                     @foreach($curso->items as $item)
-                        <li>{{ $item }}</li>
+                        <li>• {{ $item }}</li>
                     @endforeach
                 </ul>
             </div>

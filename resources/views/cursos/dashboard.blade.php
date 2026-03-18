@@ -29,10 +29,11 @@
                             <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a>
                         </td>
                         <td>
-                            <form action="/cursos/{{ $curso->id }}" method="POST" class="btn btn-info edit-btn">
+                            <form id="form-delete" action="/cursos/{{ $curso->id }}" method="POST" class="btn btn-info edit-btn">
+                                <ion-icon name="trash-outline"></ion-icon>
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn-btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Excluir</button>
+                                <button class="btn-btn-danger delete-btn">Excluir</button>
                             </form>
                         </td>
                     </tr>

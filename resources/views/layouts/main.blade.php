@@ -19,37 +19,26 @@
         <header>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-
-        <!-- Logo -->
         <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="/css/img/logo_course_hub.svg" alt="CourseHub" style="height:40px;">
+            <img src="/css/img/logo_course_hub.svg" alt="CourseHub" style="height:40px;" title="CourseHub">
         </a>
 
-        <!-- Botão hamburguer -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Conteúdo colapsável -->
         <div class="collapse navbar-collapse" id="navbar">
-
-            <!-- Busca -->
-            <form action="/" method="GET" class="d-flex mx-auto my-2 my-lg-0" role="search">
-                <input class="form-control me-2" type="search" name="search" placeholder="Pesquisar curso...">
-                <button class="btn btn-primary" type="submit">
+            <form action="/" method="GET" class=" d-flex mx-auto my-2 my-lg-0" role="search">
+                <input class="input-search form-control" type="search" name="search" placeholder="Pesquisar curso...">
+                <button class="button-search btn btn-primary" type="submit" title="Pesquisar curso">
                     <ion-icon name="search-outline"></ion-icon>
                 </button>
             </form>
 
-            <!-- Menu -->
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
                     <a href="/" class="nav-link">Cursos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/" class="nav-link">Sobre</a>
                 </li>
 
                 @auth
@@ -101,8 +90,19 @@
         </main>
     </div>
     <footer>
-        <p>SEPLAG &copy; 2026</p>
+        <p>Feito por <a href="https://github.com/deivisondelmiro" target="_blank">Deivison Delmiro</a> 🎧</p>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Adiciona a classe fade-out após 3 segundos
+        setTimeout(function() {
+            const mensagens = document.querySelectorAll('.msg');
+            mensagens.forEach(function(msg) {
+                msg.classList.add('fade-out');
+            });
+        }, 3000);
+    });
+</script>
 </body>
 </html>
