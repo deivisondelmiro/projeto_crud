@@ -15,69 +15,69 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="/css/img/logo_course_hub.svg" alt="CourseHub" style="height:40px;" title="CourseHub">
-        </a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand d-flex align-items-center">
+                    <img src="/css/img/logo_course_hub.svg" alt="CourseHub" style="height:40px;" title="CourseHub">
+                </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar">
-            <form action="/" method="GET" class=" d-flex mx-auto my-2 my-lg-0" role="search">
-                <input class="input-search form-control" type="search" name="search" placeholder="Pesquisar curso...">
-                <button class="button-search btn btn-primary" type="submit" title="Pesquisar curso">
-                    <ion-icon name="search-outline"></ion-icon>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-            </form>
 
-            <ul class="navbar-nav ms-auto">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <form action="/" method="GET" class=" d-flex mx-auto my-2 my-lg-0" role="search">
+                        <input class="input-search form-control" type="search" name="search" placeholder="Pesquisar curso...">
+                        <button class="button-search btn btn-primary" type="submit" title="Pesquisar curso">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </button>
+                    </form>
 
-                <li class="nav-item">
-                    <a href="/" class="nav-link">Cursos</a>
-                </li>
+                    <ul class="navbar-nav ms-auto">
 
-                @auth
-                    @if(Auth::user()->is_admin)
                         <li class="nav-item">
-                            <a href="/cursos/create" class="nav-link">Criar Curso</a>
+                            <a href="/" class="nav-link">Cursos</a>
                         </li>
-                    @endif
 
-                    <li class="nav-item">
-                        <a href="/dashboard" class="nav-link">Meus cursos</a>
-                    </li>
+                        @auth
+                            @if(Auth::user()->is_admin)
+                                <li class="nav-item">
+                                    <a href="/cursos/create" class="nav-link">Criar Curso</a>
+                                </li>
+                            @endif
 
-                    <li class="nav-item">
-                        <form action="/logout" method="POST">
-                            @csrf
-                            <a href="/logout"
-                               class="nav-link"
-                               onclick="event.preventDefault(); this.closest('form').submit();">
-                                Sair
-                            </a>
-                        </form>
-                    </li>
-                @endauth
+                            <li class="nav-item">
+                                <a href="/dashboard" class="nav-link">Meus cursos</a>
+                            </li>
 
-                @guest
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/register" class="nav-link">Cadastrar</a>
-                    </li>
-                @endguest
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <a href="/logout"
+                                    class="nav-link"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                        Sair
+                                    </a>
+                                </form>
+                            </li>
+                        @endauth
 
-            </ul>
-        </div>
-    </div>
-</nav>
-        </header>
+                        @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/register" class="nav-link">Cadastrar</a>
+                            </li>
+                        @endguest
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
         <main>
             <div class="container-fluid">
                 <div class="row">
