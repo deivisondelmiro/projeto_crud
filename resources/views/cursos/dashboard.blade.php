@@ -12,9 +12,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Curso</th>
-                    <th scope="col">Duração</th>
                     <th scope="col">Edição</th>
                     <th scope="col">Exclusão</th>
                 </tr>
@@ -22,9 +20,12 @@
             <tbody>
                 @foreach($cursos as $curso)
                     <tr>
-                        <td scropt="row">{{$loop->index + 1}}</td>
-                        <td><a href="/cursos/{{$curso->id}}">{{$curso->title_curso}}</a></td>
-                        <td>{{$curso->duration}}</td>
+                        <td>
+                            <a href="/cursos/{{$curso->id}}">
+                                <img src="/img/cursos/{{$curso->image}}" alt="{{$curso->title_curso}}" width="50">
+                                {{$curso->title_curso}}
+                            </a>
+                        </td>
                         <td>
                             <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a>
                         </td>

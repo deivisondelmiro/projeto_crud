@@ -148,4 +148,14 @@ class CursoController extends Controller
 
       return redirect('/dashboard')->with('msg', 'Você acabou de cancelar sua matrícula do curso: ' .$curso->title_curso);
    }
+
+   public function finalizar($id) {
+    $user = auth()->user();
+
+    $user->cursosAsParticipant()->updateExistingPivot($id, [
+        'completed' => true
+    ]);
+
+    return redirect()->back()->with('msg', 'Parabéns por concluir o curso!');
+}
 }

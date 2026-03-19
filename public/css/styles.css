@@ -89,7 +89,9 @@ header {
     height: 40px;
 }
 
-#navbar {
+nav {
+    max-width: 1300px;
+    margin: auto;
     justify-content: space-between;
     background-color: transparent;
     padding: 5px 0;
@@ -220,6 +222,12 @@ header {
     margin-bottom: 30px;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 #image-container,
 #info-container {
     margin-top: 30px;
@@ -321,7 +329,7 @@ header {
     margin-top: 20px;
 }
 
-#table-cursos-participante img {
+.table img {
     border-radius: 5px;
 }
 
@@ -347,7 +355,6 @@ header {
     gap: 5px;
     background: none;
     border: none;
-    padding: 5px 10px;
     margin: 0;
     font: inherit;
     color: rgb(32, 32, 32);
@@ -356,6 +363,10 @@ header {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+.dashboard-title-container > .delet-btn {
+    padding: 5px 10px;
 }
 
 .edit-btn {
@@ -378,8 +389,8 @@ header {
 }
 
 .ck-editor__editable {
-    min-height: 800px !important; /* Altura inicial */
-    max-height: 1500px !important; /* Limite antes de aparecer barra de rolagem interna */
+    min-height: 800px !important;
+    max-height: 1500px !important;
 }
 
 /* Footer */
@@ -387,7 +398,7 @@ footer {
     text-align: center;
     background-color: #353E48;
     color: #FFF;
-    padding: 15px;
+    padding: 10px;
     position: absolute;
     bottom: 0;
     width: 100%;

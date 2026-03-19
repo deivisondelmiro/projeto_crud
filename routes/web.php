@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [CursoController::class, 'dashboard'])->name('dashboard');
     Route::post('/cursos/join/{id}', [CursoController::class, 'joinCurso'])->name('curso.join');
     Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso'])->name('curso.leave');
+    Route::post('/cursos/finalizar/{id}', [CursoController::class, 'finalizar'])->name('curso.finalizar');
 
     Route::middleware(['admin'])->group(function () {
         // Criar curso

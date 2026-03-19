@@ -64,6 +64,6 @@ class User extends Authenticatable
     }
 
     public function cursosAsParticipant() {
-        return $this->belongsToMany('App\Models\Curso', 'user_curso');
+        return $this->belongsToMany('App\Models\Curso', 'user_curso')->withPivot('completed')->withTimestamps();
     }
 }
