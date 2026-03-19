@@ -51,10 +51,9 @@
     </div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         @if(count($cursosAsParticipant) > 0)
-        <table class="table">
+        <table class="table" id=table-cursos-participante>
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Curso</th>
                     <th scope="col">Duração</th>
                     <th scope="col">Ações</th>
@@ -63,14 +62,18 @@
             <tbody>
                 @foreach($cursosAsParticipant as $curso)
                     <tr>
-                        <td scropt="row">{{$loop->index + 1}}</td>
-                        <td><a href="/cursos/{{$curso->id}}">{{$curso->title_curso}}</a></td>
+                        <td>
+                            <a href="/cursos/{{$curso->id}}">
+                                <img src="/img/cursos/{{$curso->image}}" alt="{{$curso->title_curso}}" width="50">
+                                {{$curso->title_curso}}
+                            </a>
+                        </td>
                         <td>{{$curso->duration}}</td>
                         <td>
                             <form action="/cursos/leave/{{ $curso->id }}" method="POST">
                                 @csrf
                                 @method("DELETE")
-                                <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon> Cancelar matrícula</button>
+                                <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon> <span>Cancelar matrícula</span></button>
                             </form>
                         </td>
                     </tr>

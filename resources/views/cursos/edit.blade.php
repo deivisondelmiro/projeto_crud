@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div id="curso-create-container" class="col-md-6 offset-md-3">
+<div id="curso-create-container" class="container-edit col-md-6 offset-md-3">
     <h1>Editando: {{ $curso->title }}</h1>
     <form action="/cursos/update/{{ $curso->id }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -61,8 +61,25 @@
             <input type="file" id="image" name="image" class="form-control-file">
             <img src="/img/cursos/{{ $curso->image }}" alt="{{ $curso->title }}" class="img-preview">
         </div>
+        <div class="form-group">
+            <label for="conteudomodel">Conteúdo do Curso</label>
+            <textarea name="conteudomodel" id="conteudomodel" class="form-control" rows="20">{!! $curso->conteudomodel !!}</textarea>
+        </div>
         <input type="submit" value="Editar Curso" class="btn btn-primary">
     </form>
 </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#conteudomodel'), {
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'undo', 'redo' ]
+        })
+        .then(editor => {
+            console.log('Editor carregado com sucesso!');
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o editor:', error);
+        });
+</script>
 @endsection

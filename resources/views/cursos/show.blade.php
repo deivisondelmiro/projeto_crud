@@ -3,7 +3,7 @@
 @section('title', $curso->title_curso)
 
 @section('content')
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-10 offset-md-1 container-page-curso">
         <div class="row">
             <div id="image-container" class="col-md-6">
                 <img src="/img/cursos/{{ $curso->image }}" alt="{{ $curso->title_curso}}" class="img-fluid">
@@ -41,6 +41,22 @@
                 <h3>Descrição:</h3>
                 <p class="curso-description">{{ $curso->description}}</p>
             </div>
+            <div class="modal fade" id="cursoModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">{{ $curso->title_curso }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        {!!$curso->conteudomodel !!}
+      </div>
+
+    </div>
+  </div>
+</div>
         </div>
     </div>
 @endsection

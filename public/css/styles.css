@@ -70,7 +70,7 @@ header {
     min-width: fit-content;
     width: 100%;
     align-self: center;
-    background-image: linear-gradient(90deg, #5A4DB9, #7E6EE0);
+    background-image: linear-gradient(90deg, #473ba2, #8472e3);
     border-bottom: 1px solid #CCC;
     padding: 5px 115px;
 }
@@ -205,7 +205,7 @@ header {
 
 
 #cards-container a {
-    background-image: linear-gradient(90deg, #5A4DB9, #7E6EE0);
+    background-image: linear-gradient(90deg, #4d54b9, #7E6EE0);
 }
 
 #cursos-container img {
@@ -254,6 +254,10 @@ header {
 
 #info-container #event-submit {
     margin: 20px 0;
+}
+
+#info-container button {
+    width: max-content;
 }
 
 #description {
@@ -317,6 +321,15 @@ header {
     margin-top: 20px;
 }
 
+#table-cursos-participante img {
+    border-radius: 5px;
+}
+
+#table-cursos-participante th, .table-cursos-participante td {
+    padding: 10px;
+    text-align: left;
+}
+
 #form-delete {
     width: fit-content;
     background-color: #ff4832;
@@ -329,23 +342,44 @@ header {
 }
 
 .delete-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: rgb(32, 32, 32);
-  cursor: pointer;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    margin: 0;
+    font: inherit;
+    color: rgb(32, 32, 32);
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .edit-btn {
     background-color: #2d3748;
     color: #fff;
     border: none;
+}
+
+.container-create, .container-page-curso, .container-edit {
+    padding: 10px 0 100px 0;
+}
+
+.container-edit img {
+    border-radius: 5px;
+}
+
+.container-edit input[type="submit"], .container-create input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ck-editor__editable {
+    min-height: 800px !important; /* Altura inicial */
+    max-height: 1500px !important; /* Limite antes de aparecer barra de rolagem interna */
 }
 
 /* Footer */
@@ -414,5 +448,8 @@ footer a {
     #navegation-mobile{
         flex-direction: column;
         align-items: center;
+    }
+    .container-create, .container-page-curso, .container-edit {
+        padding: 10px 20px 100px 20px;
     }
 }

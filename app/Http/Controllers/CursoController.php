@@ -36,6 +36,7 @@ class CursoController extends Controller
       $curso->duration = $request->duration;
       $curso->level = $request->level;
       $curso->items = $request->items;
+      $curso->conteudomodel = $request->conteudomodel;
 
       // Image Upload
 

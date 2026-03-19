@@ -12,7 +12,8 @@ class Curso extends Model
         'title_curso',
         'description',
         'duration',
-        'level'
+        'level',
+        'conteudomodel'
     ];
 
     protected $casts = [

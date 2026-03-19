@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div id="curso-create-container" class="col-md-6 offset-md-3">
+<div id="curso-create-container" class="container-create col-md-6 offset-md-3">
     <h1>Crie o seu curso</h1>
     <form action="/cursos" method="POST" enctype="multipart/form-data">
         @csrf
@@ -59,8 +59,22 @@
             <label for="image">Imagem do curso:</label>
             <input type="file" id="image" name="image" class="form-control-file">
         </div>
+        <div class="form-group">
+            <label for="conteudomodel">Conteúdo do Curso:</label>
+            <textarea name="conteudomodel" id="conteudomodel" class="form-control" rows="20"></textarea>
+        </div>
         <input type="submit" value="Criar Curso" class="btn btn-primary">
     </form>
 </div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#conteudomodel'), {
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'undo', 'redo' ]
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 @endsection
