@@ -23,9 +23,9 @@
         <div class="form-group">
             <label for="level">Nível:</label>
             <select name="level" id="level" class="form-control">
-                <option value="basico">Básico</option>
-                <option value="intermediario">Intermediário</option>
-                <option value="avancado">Avançado</option>
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
             </select>
         </div>
         <div class="form-group">

@@ -29,7 +29,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar">
                     <form action="/" method="GET" class=" d-flex mx-auto my-2 my-lg-0" role="search">
-                        <input class="input-search form-control" type="search" name="search" placeholder="Pesquisar curso...">
+                        <input class="input-search form-control" type="search" name="search" placeholder="Buscar cursos por nome...">
                         <button class="button-search btn btn-primary" type="submit" title="Pesquisar curso">
                             <ion-icon name="search-outline"></ion-icon>
                         </button>
