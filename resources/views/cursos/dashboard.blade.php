@@ -47,11 +47,12 @@
 @endif
 @if(!auth()->user()->is_admin)
 </div>
-    <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Cursos que estou inscrito.</h1>
+<div class="col-md-10 offset-md-1 dashboard-title-container">
+        @if(count($cursosAsParticipant) == 0)
+        <h1>Você ainda não está inscrito em nenhum curso.</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
-        @if(count($cursosAsParticipant) > 0)
+        @elseif(count($cursosAsParticipant) > 0)
         <table class="table" id=table-cursos-participante>
             <thead>
                 <tr>

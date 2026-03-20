@@ -49,7 +49,7 @@
                             @endif
 
                             <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">Meus cursos</a>
+                                <a href="/dashboard" class="nav-link">Cursos Cadastrados</a>
                             </li>
 
                             <li class="nav-item">
