@@ -113,7 +113,6 @@ public function update(Request $request)
 {
     $data = $request->all();
     
-    // Processa a imagem APENAS se for enviada
     if ($request->hasFile('image') && $request->file('image')->isValid()) {
         // Deleta a imagem antiga
         $curso = Curso::findOrFail($request->id);
@@ -128,7 +127,6 @@ public function update(Request $request)
         $requestImage->move(public_path('img/cursos'), $imageName);
         $data['image'] = $imageName;
     } else {
-        // REMOVE o campo image do array para não substituir no banco
         unset($data['image']);
     }
     
