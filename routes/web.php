@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\CertificadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cursos/join/{id}', [CursoController::class, 'joinCurso'])->name('curso.join');
     Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso'])->name('curso.leave');
     Route::post('/cursos/finalizar/{id}', [CursoController::class, 'finalizar'])->name('curso.finalizar');
+    Route::get('/certificado/{id}', [CertificadoController::class, 'gerar'])->name('certificado.pdf');
 
     Route::middleware(['admin'])->group(function () {
         // Criar curso

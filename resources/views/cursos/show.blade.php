@@ -29,7 +29,7 @@
                     @endphp
 
                     @if($finalizado)
-                        <a href="/cursos/certificado/{{ $curso->id }}" class="btn btn-success">
+                        <a href="{{ route('certificado.pdf', $curso->id) }}" class="btn btn-success">
                              Imprimir Certificado
                         </a>
                     @else
