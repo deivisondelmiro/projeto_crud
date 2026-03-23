@@ -25,7 +25,7 @@
             </div>
         @endforeach
         @if(count($cursos) == 0 && $search)
-            <p>Não foi possível encontrar nenhum curso de {{ $search }}! <a href="/">Veja todos os cursos.</a></p>
+            <p>Não foi possível encontrar nenhum curso de {{ $search }}! <br><a href="/" class="btn btn-primary">Veja todos os cursos.</a></p>
         @elseif(count($cursos) == 0)
             <p>Não há cursos disponíveis.</p>
         @endif

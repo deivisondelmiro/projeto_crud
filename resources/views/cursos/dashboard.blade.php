@@ -43,6 +43,7 @@
         </table>
         @else
             <p>Você ainda não tem cursos.</p>
+            <a href="/cursos/create" class="btn btn-primary">Crie um novo curso</a>
         @endif
 @endif
 @if(!auth()->user()->is_admin)
