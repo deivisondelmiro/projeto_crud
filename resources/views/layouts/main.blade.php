@@ -46,12 +46,14 @@
                                 <li class="nav-item">
                                     <a href="/cursos/create" class="nav-link">Criar Curso</a>
                                 </li>
-                            @endif
-
+                                <li class="nav-item">
+                                    <a href="/dashboard" class="nav-link">Gerenciar Cursos</a>
+                                </li>
+                            @elseif(Auth::user())
                             <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">Cursos Cadastrados</a>
+                                <a href="/dashboard" class="nav-link">Meus Cursos</a>
                             </li>
-
+                            @endif
                             <li class="nav-item">
                                 <form action="/logout" method="POST">
                                     @csrf

@@ -75,11 +75,5 @@
         .create(document.querySelector('#conteudomodel'), {
             toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'undo', 'redo' ]
         })
-        .then(editor => {
-            console.log('Editor carregado com sucesso!');
-        })
-        .catch(error => {
-            console.error('Erro ao carregar o editor:', error);
-        });
 </script>
 @endsection

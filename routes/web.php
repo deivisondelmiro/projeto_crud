@@ -16,6 +16,7 @@ use App\Http\Controllers\CursoController;
 
 // Rotas públicas (qualquer pessoa pode ver os cursos)
 Route::get('/', [CursoController::class, 'index'])->name('home');
+Route::get('/cursos', [CursoController::class, 'index'])->name('cursos');
 
 // Rotas que exigem autenticação (usuários logados)
 Route::middleware(['auth'])->group(function () {

@@ -69,8 +69,6 @@
                         <div class="modal-body">
                             {!! $curso->conteudomodel !!}
                         </div>
-
-                        {{-- LÓGICA DO BOTÃO FINALIZAR DENTRO DO MODAL --}}
                         <div class="modal-footer">
                             @if(isset($finalizado) && !$finalizado)
                                 <form action="/cursos/finalizar/{{ $curso->id }}" method="POST">
