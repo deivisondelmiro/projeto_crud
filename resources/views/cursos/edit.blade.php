@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="level">Nível:</label>
-            <select name="level" id="level" class="form-control">
+            <select name="level" id="level" class="form-control" required>
                 <option value="basico">Básico</option>
                 <option value="intermediario">Intermediário</option>
                 <option value="avancado">Avançado</option>
@@ -59,7 +59,7 @@
         <div class="form-group">
             <label for="image">Imagem do curso:</label>
             <input type="file" id="image" name="image" class="form-control-file">
-            <img src="/img/cursos/{{ $curso->image }}" alt="{{ $curso->title }}" class="img-preview">
+            <img src="/img/cursos/{{ $curso->image }}" alt="{{ $curso->title }}" class="img-preview" enctype="multipart/form-data">
         </div>
         <div class="form-group">
             <label for="conteudomodel">Conteúdo do Curso</label>

@@ -109,25 +109,33 @@ class CursoController extends Controller
       return view('cursos.edit', ['curso' => $curso]);
    }
 
-   public function update(Request $request) {
-      $data = $request->all();
-
-      if($request->hasFile('image') && $request->file('image')->isValid()) {
-         $requestImage = $request->image;
-
-         $extension = $requestImage->extension();
-
-         $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-
-         $requestImage->move(public_path('img/cursos'), $imageName);
-
-         $data['image'] = $imageName;
-      }
-
-      Curso::findOrFail($request->id)->update($data);
-
-      return redirect('/dashboard')->with('msg', 'Curso editado com sucesso!');
-   }
+public function update(Request $request)
+{
+    $data = $request->all();
+    
+    // Processa a imagem APENAS se for enviada
+    if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        // Deleta a imagem antiga
+        $curso = Curso::findOrFail($request->id);
+        if ($curso->image && file_exists(public_path('img/cursos/' . $curso->image))) {
+            unlink(public_path('img/cursos/' . $curso->image));
+        }
+        
+        // Salva a nova imagem
+        $requestImage = $request->image;
+        $extension = $requestImage->extension();
+        $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+        $requestImage->move(public_path('img/cursos'), $imageName);
+        $data['image'] = $imageName;
+    } else {
+        // REMOVE o campo image do array para não substituir no banco
+        unset($data['image']);
+    }
+    
+    Curso::findOrFail($request->id)->update($data);
+    
+    return redirect('/dashboard')->with('msg', 'Curso editado com sucesso!');
+}
 
    public function joinCurso($id) {
       $user = auth()->user();
@@ -156,6 +164,6 @@ class CursoController extends Controller
         'completed' => true
     ]);
 
-    return redirect()->back()->with('msg', 'Parabéns por concluir o curso!');
-}
+      return redirect()->back()->with('msg', 'Parabéns por concluir o curso!');
+   }
 }

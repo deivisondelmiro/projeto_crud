@@ -118,7 +118,6 @@ nav {
     align-items: center;
 }
 
-/* Search */
 #search-container {
     width: 100%;
     text-align: center;
@@ -172,7 +171,6 @@ nav {
     justify-content: space-around;
 }
 
-/* List */
 #cursos-container {
     padding: 50px;
 }
@@ -309,7 +307,11 @@ nav {
     width: 100%
 }
 
-/* Dashboard */
+.dashboard-cursos-container,
+.dashboard-title-container {
+    padding-bottom: 50px;
+}
+
 .dashboard-title-container {
     margin: 30px 0 30px 0;
 }
@@ -334,6 +336,15 @@ nav {
 #table-cursos-participante th, .table-cursos-participante td {
     padding: 10px;
     text-align: left;
+}
+
+#table-cursos-participante .delete-btn {
+    background-color: #ff4f3b;
+    color: #fff;
+}
+
+#table-cursos-participante .delete-btn:hover {
+    background-color: #ff1a00;
 }
 
 #form-delete {
@@ -391,7 +402,6 @@ nav {
     max-height: 1500px !important;
 }
 
-/* Footer */
 footer {
     width: 100%;
     position: absolute;
@@ -425,7 +435,6 @@ footer a {
     }
     #cursos-container .card {
         flex: 1 1 30%;
-        /* max-width: none; */
     }
     .cards-container {
         gap: 20px;
@@ -452,7 +461,6 @@ footer a {
 
     #cursos-container .card {
         flex: 1 1 500%;
-        /* max-width: none; */
     }
     #navegation-mobile{
         flex-direction: column;

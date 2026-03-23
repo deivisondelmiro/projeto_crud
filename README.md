@@ -40,6 +40,11 @@ sudo apt install git
    composer install
    ```
 
+2.5 **Instale o DOMPDF:**
+   ```bash
+   composer require barryvdh/laravel-dompdf
+   ```
+
 3. **Instale as dependências do Node.js:**
    ```bash
    npm install

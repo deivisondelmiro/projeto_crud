@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Curso extends Model
 {
@@ -13,7 +14,8 @@ class Curso extends Model
         'description',
         'duration',
         'level',
-        'conteudomodel'
+        'conteudomodel',
+        'image',
     ];
 
     protected $casts = [
@@ -34,5 +36,17 @@ class Curso extends Model
 
     public function users() {
         return $this->belongsToMany('App\Models\User', 'user_curso');
+    }
+
+    public function isFinalizado()
+    {
+        if (!auth()->check()) return false;
+
+        $curso = auth()->user()
+            ->cursosAsParticipant()
+            ->where('curso_id', $this->id)
+            ->first();
+
+        return $curso && $curso->pivot->completed;
     }
 }

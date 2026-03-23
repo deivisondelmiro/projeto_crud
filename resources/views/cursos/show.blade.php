@@ -20,17 +20,9 @@
                         <ion-icon name="create-outline"></ion-icon> Editar
                     </a>
                 @elseif(auth()->check() && $hasUserJoined)
-                    @php
-                        $finalizado = false;
-                        if(auth()->check()) {
-                            $cursoUsuario = auth()->user()->cursosAsParticipant()->where('curso_id', $curso->id)->first();
-                            $finalizado = $cursoUsuario && $cursoUsuario->pivot->completed;
-                        }
-                    @endphp
-
-                    @if($finalizado)
-                        <a href="{{ route('certificado.pdf', $curso->id) }}" class="btn btn-success">
-                             Imprimir Certificado
+                    @if($curso->isFinalizado())
+                        <a href="{{ route('certificado.pdf', $curso->id) }}" class="btn btn-success" target="_blank">
+                            Imprimir Certificado
                         </a>
                     @else
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cursoModal">
@@ -70,7 +62,7 @@
                             {!! $curso->conteudomodel !!}
                         </div>
                         <div class="modal-footer">
-                            @if(isset($finalizado) && !$finalizado)
+                            @if(!$curso->isFinalizado())
                                 <form action="/cursos/finalizar/{{ $curso->id }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Marcar como Concluído</button>

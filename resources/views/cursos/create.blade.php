@@ -57,7 +57,7 @@
         </div>
         <div class="form-group">
             <label for="image">Imagem do curso:</label>
-            <input type="file" id="image" name="image" class="form-control-file">
+            <input type="file" id="image" name="image" class="form-control-file" enctype="multipart/form-data">
         </div>
         <div class="form-group">
             <label for="conteudomodel">Conteúdo do Curso:</label>
